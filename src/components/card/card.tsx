@@ -1,25 +1,24 @@
 import React from "react";
 
-const suitsObj = {
-    diams: '♦',
-    hearts: '♥',
-    clubs: '♣',
-    spades: '♠',
-};
-
-interface Rank_Suit {
+interface CardProps {
     rank: string;
-    suit: keyof typeof suitsObj;
+    suit: 'diams' | 'hearts' | 'clubs' | 'spades';
+    isSelected: boolean;
+    onSelect: () => void;
 }
 
-const Card: React.FC<Rank_Suit> = ({rank, suit}) => {
+const Card: React.FC<CardProps> = ({rank, suit, isSelected, onSelect}) => {
     return (
-        <>
-            <span className={`card rank-${rank.toLowerCase()} ${suit}`}>
-                <span className="rank">{rank}</span>
-                <span className="suit">{suitsObj[suit]}</span>
-            </span>
-        </>
+        <div className={`card rank-${rank.toLowerCase()} ${suit}`}>
+            <span className="rank">{rank}</span>
+            <span className="suit">{suit}</span>
+            <input
+                type="checkbox"
+                checked={isSelected}
+                onChange={onSelect}
+                className="select-checkbox"
+            />
+        </div>
     );
 };
 export default Card;
