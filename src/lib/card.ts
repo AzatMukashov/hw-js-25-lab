@@ -1,8 +1,8 @@
 class Card {
     public rank: string;
-    public suit: string;
+    public suit: 'diams' | 'hearts' | 'clubs' | 'spades';
 
-    constructor(rank: string, suit: string) {
+    constructor(rank: string, suit: 'diams' | 'hearts' | 'clubs' | 'spades') {
         this.rank = rank;
         this.suit = suit;
     }

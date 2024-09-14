@@ -14,12 +14,12 @@ interface Rank_Suit {
 
 const Card: React.FC<Rank_Suit> = ({rank, suit}) => {
     return (
-        <div>
+        <>
             <span className={`card rank-${rank.toLowerCase()} ${suit}`}>
                 <span className="rank">{rank}</span>
                 <span className="suit">{suitsObj[suit]}</span>
             </span>
-        </div>
+        </>
     );
 };
 export default Card;
