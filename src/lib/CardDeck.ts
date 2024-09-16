@@ -17,7 +17,10 @@ class CardDeck {
         }
     }
 
-    public getCard(): Card {
+    public getCard(): Card | null {
+        if (this.deck.length === 0) {
+            return null;
+        }
         const randomIndex = Math.floor(Math.random() * this.deck.length);
         return this.deck.splice(randomIndex, 1)[0];
     }
@@ -25,9 +28,20 @@ class CardDeck {
     public getCards(howMany: number): Card[] {
         const cards: Card[] = [];
         for (let i = 0; i < howMany; i++) {
-            cards.push(this.getCard());
+            const card = this.getCard();
+            if (card) {
+                cards.push(card);
+            } else {
+                break;
+            }
         }
         return cards;
+    }
+    public isEmpty(): boolean {
+        return this.deck.length === 0;
+    }
+    public resetDeck() {
+        this.initializeDeck();
     }
 }
 

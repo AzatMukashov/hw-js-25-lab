@@ -63,8 +63,6 @@ class PokerHand {
     }
 
     private isThreeOfAkind(): boolean {
-        // const ranks = this.cards.map(card => card.rank);
-        // return ranks.some(rank => ranks.filter(r => r === rank).length > 3);
         return this.hasNOfAkind(3);
     }
 
@@ -75,8 +73,6 @@ class PokerHand {
     }
 
     private isOnePair(): boolean {
-        // const ranks = this.cards.map(card => card.rank);
-        // return ranks.some(rank => ranks.filter(r => r === rank).length === 2);
         return this.hasNOfAkind(2);
     }
 
